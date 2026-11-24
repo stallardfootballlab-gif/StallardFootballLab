@@ -1,0 +1,47 @@
+.sfl-hero-bg {
+  background-image: radial-gradient(70% 60% at 85% 10%, rgb(34 197 94 / 0.14), transparent 70%), linear-gradient(180deg, #0b1335 0%, #070b1f 100%);
+}
+
+.sfl-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(255 255 255 / 0.28);
+}
+
+.sfl-fade-x {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.sfl-reveal {
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sfl-reveal.sfl-hidden {
+  opacity: 0;
+  transform: translateY(36px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sfl-marquee {
+    animation: sfl-marquee 38s linear infinite;
+  }
+
+  @keyframes sfl-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @supports (animation-timeline: view()) {
+    .sfl-zoom {
+      animation: sfl-zoom linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 100%;
+    }
+
+    @keyframes sfl-zoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.12); }
+    }
+  }
+}
+
